@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle, #2a0f53, #370e52, #430c51, #4d0b4f, #560b4d);
+  height: 100vh;
+}
+
+.header-container {
+  width: 100%;
+  height: 5vh;
+  color: #FEFDFE;
+  text-align: center;
+}
+
+.letters-container {
+  text-align: center;
+  position: relative;
+  top: 75%;
+}
+
+.letter-row {
+  justify-content: space-evenly;
+}
+
+.letters {
+  display: inline-flex;
+  font-weight: 600;
+  font-size: 200%;
+  color: #B79CC2;
+
+}
