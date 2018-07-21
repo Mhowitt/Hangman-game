@@ -2,20 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let randomStr = 'Leggings stumptown vape umami meggings lover croix tote bag enamel pin lyft letterpress knausgaard photo booth disrupt roof party Craft beer art party meh tumeric gluten actually four dollar toast plaid Wolf migas distillery humblebrag tilde fanny pack listicle keffiyeh labyrinth paleo sustainable Plaid four dollar toast truffaut listicle irony mixtape tousled hella locavore put bird poutine Etsy wayfarers kickstarter hammock asfuck'
   const randomWords = randomStr.split(' ');
-  let hangedRandomWord = randomWords[Math.floor(Math.random()*randomWords.length)].split('')
+  let hangedRandomWord = randomWords[Math.floor(Math.random()*randomWords.length)].toLowerCase().split('')
 
   let counter = 0;
   let turns = 7;
   let playerResult = [];
-  let playerLtrGuess = [];
-  let lengthOfLines = hangedRandomWord.length;
+  let playerLtrGuess = {};
+  //let lengthOfLines = hangedRandomWord.length;
 
   let letterContainer = document.querySelector(".letters-container");
   let hungWord = document.querySelector(".word-container")
-
-  letterContainer.addEventListener('click', (event) => {
-    console.log(event.target.innerText)
-  })
 
   const initGame = () => {
 
@@ -24,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let charText = document.createElement('p')
       let borderBottom = document.createElement('div');
       charText.innerText = char;
+      charText.className = `hidden letter-${char}`
       charContainer.className = 'word-container-letter';
 
       hungWord.appendChild(charContainer);
@@ -32,11 +29,32 @@ document.addEventListener('DOMContentLoaded', () => {
     } )
   }
 
+  letterContainer.addEventListener('click', (event) => {
+    let selectedLtr = event.target.innerText;
+    if (playerLtrGuess[selectedLtr] !== undefined) {
+      alert("You've already hit this")
+    } else {
+      if (hangedRandomWord.contains(selectedLtr) && playerResult.indexOf(selectedLtr) === -1) {
+        isInWord(selectedLtr);
+      } else {
+        wrongGuess(selectedLtr);
+      }
+    }
+  })
+
   const isInWord = (ltr) => {
+
+    let letterToShow = document.getElementsByClassName(`letter-${ltr}`);
+    letterToShow.style.visibility = 'visible';
 
   }
 
   const wrongGuess = (letter) => {
+    counter++;
+
+  }
+
+  const alreadyGuessed = () => {
 
   }
 

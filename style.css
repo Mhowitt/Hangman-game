@@ -37,12 +37,17 @@ body {
 .word-container-letter > p {
   color: #2e62b9;
   font-size: 150%;
+  visibility: hidden;
 }
 
 .word-container-letter > div {
   border-bottom: 1px solid blue;
   width: 20px;
 }
+
+/* .hidden {
+  visibility: hidden;
+} */
 
 .hangman-container {
   align-self: center;
@@ -52,9 +57,8 @@ body {
 
 .hanging-stage {
   width: 500px;
-  height: 50px;
+  height: 25px;
   background-color: saddlebrown;
-
 }
 
 
