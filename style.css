@@ -20,7 +20,7 @@ body {
 .word-container {
   width: 50%;
   position: relative;
-  top: 50%;
+  top: 15%;
   justify-content: center;
   height: 30px;
   align-self: center;
@@ -52,7 +52,7 @@ body {
 .hangman-container {
   align-self: center;
   position: relative;
-  top: 50%;
+  top: 10%;
 }
 
 .hanging-stage {
@@ -60,7 +60,28 @@ body {
   height: 25px;
   background-color: saddlebrown;
 }
+.stand {
+  height: 400px;
+  width: 15px;
+  transform: rotate(180deg);
+  background-color: saddlebrown;
+  position: relative;
+}
 
+.top {
+  width: 250px;
+  height: 15px;
+  background-color: saddlebrown;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+/*
+.noose {
+
+}
+
+.noose */
 
 /* .hanging-stage {
 	perspective: 800px;
@@ -111,7 +132,7 @@ body {
 .letters-container {
   text-align: center;
   position: relative;
-  top: 65%;
+  top: 30%;
 }
 
 .letter-row {
