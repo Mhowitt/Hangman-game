@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let counter = 0;
   let turns = 7;
+  const hangManParts = ["stand", "noose", 'head', 'torso', 'leg-1', 'leg-2', 'arm-1', 'arm-2']
   let playerResult = [];
   let playerLtrGuess = {};
   //let lengthOfLines = hangedRandomWord.length;
@@ -52,6 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const wrongGuess = (letter) => {
     counter++;
 
+    let hangPartToShow;
+
+
   }
 
   const alreadyGuessed = () => {
@@ -59,10 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const winner = () => {
-
+    let winnerModal = document.querySelector('win-modal')
   }
 
   const lostGame = () => {
+    let loserModal = document.querySelector('lose-modal')
 
   }
 
