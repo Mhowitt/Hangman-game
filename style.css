@@ -20,7 +20,7 @@ body {
 .word-container {
   width: 50%;
   position: relative;
-  top: 15%;
+  top: 55%;
   justify-content: center;
   height: 30px;
   align-self: center;
@@ -50,23 +50,32 @@ body {
 } */
 
 .hangman-container {
-  align-self: center;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
   position: relative;
-  top: 10%;
+  justify-content: space-evenly;
+  top: 50%;
+  margin-top: 5%;
+  margin-left: 2%;
 }
 
 .hanging-stage {
-  width: 500px;
+  width: 60%;
   height: 25px;
+  align-self: flex-start;
   background-color: saddlebrown;
 }
+
 .stand {
   height: 400px;
   width: 15px;
   transform: rotate(180deg);
   background-color: saddlebrown;
-  position: relative;
+  position: absolute;
   visibility: hidden;
+  bottom: 0;
+  right: 70%;
 }
 
 .top {
@@ -74,8 +83,15 @@ body {
   height: 15px;
   background-color: saddlebrown;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  top: 0px;
+  left: 0;
+}
+
+.score-container {
+  align-self: flex-end;
+  width: 20%;
+  height: 100px;
+  background-color: antiquewhite;
 }
 /*
 .noose {
@@ -133,7 +149,7 @@ body {
 .letters-container {
   text-align: center;
   position: relative;
-  top: 30%;
+  top: 70%;
 }
 
 .letter-row {

@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let hangedRandomWord = randomWords[Math.floor(Math.random()*randomWords.length)].toUpperCase().split('')
 
   let incorrectGuesses = 0;
-  let turns = 8 - incorrectGuesses;
+
+  let turns = document.getElementsByClassName('turns-left');
+  turns.innerText = `${8 - incorrectGuesses}`;
   const hangManParts = ["stand", "noose", 'head', 'torso', 'leg-1', 'leg-2', 'arm-1', 'arm-2']
   let playerResult = [];
   let playerLtrGuess = {};
-  //let lengthOfLines = hangedRandomWord.length;
 
   let letterContainer = document.querySelector(".letters-container");
   let hungWord = document.querySelector(".word-container")
@@ -38,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (playerLtrGuess[selectedLtr] !== undefined) {
       alert("You've already hit this")
     } else {
-
       if (hangedRandomWord.indexOf(selectedLtr) !== -1 && playerResult.indexOf(selectedLtr) === -1) {
         isInWord(selectedLtr);
       } else {
@@ -55,26 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
       letterToShow[i].style.visibility = 'visible';
       playerResult.push(letterToShow[i].innerText)
     }
-
     if (playerResult.length === hangedRandomWord.length) {
       winner();
     }
-
   }
 
   const wrongGuess = (letter) => {
     incorrectGuesses++;
-
     let hangPartToShow = document.getElementsByClassName(`${hangManParts[incorrectGuesses - 1]}`)
-    console.log(hangPartToShow)
     for (let i = 0; i < hangPartToShow.length; i++) {
       hangPartToShow[i].style.visibility = 'visible';
     }
     if (incorrectGuesses === 8) {
       lostGame();
     }
-
-
   }
 
   const alreadyGuessed = () => {
@@ -96,12 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-
   initGame()
-
-
-  // letter.addEventListener('click', (e) => {
-  //   alert((e.target).innerText)
-  // })
 
 })
