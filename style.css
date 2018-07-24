@@ -66,6 +66,7 @@ body {
   transform: rotate(180deg);
   background-color: saddlebrown;
   position: relative;
+  visibility: hidden;
 }
 
 .top {

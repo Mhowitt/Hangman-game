@@ -43,8 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert("it's in the word")
         isInWord(selectedLtr);
       } else {
-        alert("not in word")
-        // wrongGuess(selectedLtr);
+        wrongGuess(selectedLtr);
       }
       playerLtrGuess[selectedLtr] = 1;
     }
@@ -63,7 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const wrongGuess = (letter) => {
     incorrectGuesses++;
 
-    let hangPartToShow;
+    let hangPartToShow = document.getElementsByClassName(`${hangManParts[incorrectGuesses - 1]}`)
+    console.log(hangPartToShow)
+    for (let i = 0; i < hangPartToShow.length; i++) {
+      hangPartToShow[i].style.visibility = 'visible';
+    }
 
 
   }
