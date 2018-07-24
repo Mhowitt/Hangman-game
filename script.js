@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
 
       if (hangedRandomWord.indexOf(selectedLtr) !== -1 && playerResult.indexOf(selectedLtr) === -1) {
-        alert("it's in the word")
         isInWord(selectedLtr);
       } else {
         wrongGuess(selectedLtr);
@@ -53,9 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(ltr)
     let letterToShow = document.getElementsByClassName(`letter-${ltr}`);
     for (let i = 0; i < letterToShow.length; i++) {
-    letterToShow[i].style.visibility = 'visible';
+      letterToShow[i].style.visibility = 'visible';
+      playerResult.push(letterToShow[i].innerText)
     }
-    playerResult.push(ltr);
+
+    if (playerResult.length === hangedRandomWord.length) {
+      winner();
+    }
 
   }
 
@@ -67,6 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < hangPartToShow.length; i++) {
       hangPartToShow[i].style.visibility = 'visible';
     }
+    if (incorrectGuesses === 8) {
+      lostGame();
+    }
 
 
   }
@@ -76,10 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const winner = () => {
+    alert('you won')
     let winnerModal = document.querySelector('win-modal')
   }
 
   const lostGame = () => {
+    alert('you lost :(')
     let loserModal = document.querySelector('lose-modal')
 
   }
